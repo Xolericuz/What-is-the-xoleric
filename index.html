@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>XOLERIC ?</title>
+
+<style>
+:root {
+    --bg1: #0a0a23;
+    --bg2: #1c1c3a;
+    --bg3: #2e2e56;
+    --card-bg: rgba(255,255,255,0.05);
+    --card-shadow: rgba(0,0,0,0.7);
+    --primary-gradient: linear-gradient(90deg,#00f5ff,#ff00c8);
+    --font-primary: 'Google Sans', 'Segoe UI', sans-serif;
+}
+
+/* Basic Reset */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+    font-family: var(--font-primary);
+    background: linear-gradient(135deg,var(--bg1),var(--bg2),var(--bg3));
+    color: #fff;
+    overflow: hidden;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Wrapper + Perspective */
+.wrapper {
+    width: 100%;
+    height: 100%;
+    perspective: 800px;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Scroll Container */
+.scroll {
+    width: 90%;
+    max-width: 900px;
+    margin: auto;
+    text-align: center;
+    animation: scrollUp 60s linear infinite;
+    will-change: transform;
+}
+.scroll.paused { animation-play-state: paused; }
+
+@keyframes scrollUp {
+    from { transform: translateY(100%); }
+    to { transform: translateY(-120%); }
+}
+
+/* Title */
+.title {
+    font-size: 48px;
+    font-weight: 800;
+    letter-spacing: 5px;
+    margin-bottom: 60px;
+    background: var(--primary-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-transform: uppercase;
+    text-shadow: 0 0 10px #00f5ff, 0 0 20px #ff00c8;
+}
+
+/* Card Styling */
+.card {
+    margin: 80px 0;
+    padding: 35px;
+    border-radius: 24px;
+    backdrop-filter: blur(25px);
+    background: var(--card-bg);
+    box-shadow: 0 0 50px var(--card-shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 0 60px #ff00c8,0 0 30px #00f5ff;
+}
+.card h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+}
+.card p {
+    font-size: 20px;
+    line-height: 1.9;
+    opacity: 0.95;
+}
+
+/* Responsive tweaks */
+@media (max-width: 600px){
+    .title { font-size: 36px; margin-bottom: 40px; }
+    .card { padding: 25px; margin: 60px 0; }
+    .card h2 { font-size: 26px; }
+    .card p { font-size: 16px; line-height: 1.6; }
+}
+</style>
+</head>
+
+<body>
+<div class="wrapper">
+    <div class="scroll" id="scrollContainer">
+
+        <div class="title">temperament nima? Temperament — bu insonning tug'ma nerv tizimi faoliyatiga asoslangan psixologik xususiyatlari. Uni birinchi marta qadimgi yunon tabib <>Gippokrat> (miloddan avvalgi 460-370 yillar) tasvirlagan. </div>
+
+        <div class="card">
+            <h2>🔥 XOLERIK</h2>
+            <p>
+              Xoleric tez 'ozgaruvchan yangiliklarga moslashuvchan.
+              Tezkor, qat’iyatli va kuchli liderlik xususiyatiga ega. 
+                Qaror qabul qilishda ishonchli, maqsad sari qat’iy yuradi. 
+                Stressga tez moslashadi va yuqori energiya bilan atrofdagilarga ta’sir qiladi. 
+                Innovatsiyaga ochiq va risklarni boshqarishda usta.
+            </p>
+        </div>
+
+        <div class="card">
+            <h2>🌟 SANGVINIK</h2>
+            <p>
+                Quvnoq, ijtimoiy va odamlar bilan tez til topishadi. 
+                Moslashuvchan va optimistik, har qanday muhitda faol bo‘la oladi. 
+                Yaratilish va ijodiy fikrlashda kuchli, motivatsiyani boshqalarga tarqatadi.
+            </p>
+        </div>
+
+        <div class="card">
+            <h2>🌿 FLEGMATIK</h2>
+            <p>
+                Tinch, barqaror va sabrli. Konfliktdan qochadi, ishni sekin lekin sifatli bajaradi. 
+                Analitik tafakkurga ega va jamoa uchun mustahkam tayanch bo‘la oladi. 
+                Uzoq muddatli rejalarda muvaffaqiyatli.
+            </p>
+        </div>
+
+        <div class="card">
+            <h2>🌙 MELANXOLIK</h2>
+            <p>
+                Chuqur fikrlovchi va sezgir, emotsional chuqurligi bilan ajralib turadi. 
+                Tahlilga moyil va perfeksionizm kuchli. 
+                San’at, ilm va falsafa sohalarida muvaffaqiyatli, atrofdagilarni chuqur ilhomlantiradi.
+            </p>
+        </div>
+
+    </div>
+</div>
+
+<script>
+// Scroll interactivity: pause on mousedown/touch, resume on release
+const scrollContainer = document.getElementById('scrollContainer');
+scrollContainer.addEventListener('mousedown', ()=>scrollContainer.classList.add('paused'));
+scrollContainer.addEventListener('mouseup', ()=>scrollContainer.classList.remove('paused'));
+scrollContainer.addEventListener('touchstart', ()=>scrollContainer.classList.add('paused'));
+scrollContainer.addEventListener('touchend', ()=>scrollContainer.classList.remove('paused'));
+</script>
+</body>
+</html>
